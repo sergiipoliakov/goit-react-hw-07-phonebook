@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import phoneBookOperations from '../../redux/phoneBook/phoneBook-operations';
+
+import { phoneBookOperations, phoneBookSelectors } from '../../redux/phoneBook';
 
 import DublicateAlert from '../DublicateAlert/DublicateAlert';
 import Button from '../Button/Button';
@@ -113,7 +114,7 @@ class ContactForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  contacts: state.phoneBook.items,
+  contacts: phoneBookSelectors.getAllContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({

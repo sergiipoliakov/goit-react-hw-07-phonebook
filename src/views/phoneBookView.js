@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { Component } from 'react';
-import phoneBookOperations from '../redux/phoneBook/phoneBook-operations';
+import { phoneBookOperations, phoneBookSelectors } from '../redux/phoneBook';
 import Layout from '../components/Layout';
 import ContactForm from '../components/ContactForm/ContactForm';
 import ContactList from '../components/ContactList/ContactList';
@@ -24,7 +24,7 @@ class phoneBookView extends Component {
   }
 }
 const mapStateToProps = state => ({
-  isLoadingPhoneBook: state.phoneBook.loading,
+  isLoadingPhoneBook: phoneBookSelectors.getLoading(state),
 });
 
 const mapDispatchToProps = dispatch => ({

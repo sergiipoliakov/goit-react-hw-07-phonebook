@@ -1,4 +1,4 @@
-import PropTypes, { number, string } from 'prop-types';
+import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import styles from './ContactListItem.module.css';
 
