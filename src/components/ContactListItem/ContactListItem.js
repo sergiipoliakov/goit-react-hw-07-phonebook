@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types';
+import PropTypes, { number, string } from 'prop-types';
 import Button from '../Button/Button';
 import styles from './ContactListItem.module.css';
 
@@ -25,7 +25,7 @@ ContactListItem.defaultProps = {
 };
 
 ContactListItem.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   name: PropTypes.string.isRequired,
   number: PropTypes.string.isRequired,
   onRemove: PropTypes.func,

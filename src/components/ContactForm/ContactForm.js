@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import phoneBookActions from '../../redux/phoneBook/phonebook-actions';
+import phoneBookOperations from '../../redux/phoneBook/phoneBook-operations';
 
 import DublicateAlert from '../DublicateAlert/DublicateAlert';
 import Button from '../Button/Button';
@@ -15,7 +15,7 @@ class ContactForm extends Component {
   static propTypes = {
     contacts: PropTypes.arrayOf(
       PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
         name: PropTypes.string.isRequired,
         number: PropTypes.string.isRequired,
       }),
@@ -118,7 +118,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   onSubmit: (name, number) =>
-    dispatch(phoneBookActions.addContact(name, number)),
+    dispatch(phoneBookOperations.addContact(name, number)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);

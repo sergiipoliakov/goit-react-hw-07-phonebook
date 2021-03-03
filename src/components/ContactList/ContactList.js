@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
-import phoneBookActions from '../../redux/phoneBook/phonebook-actions';
+import phoneBookOperations from '../../redux/phoneBook/phoneBook-operations';
 import Filter from '../Filter/Filter';
 import Title from '../Title/Title';
 import './ContactList.css';
@@ -64,7 +64,7 @@ const ContactList = ({
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.string,
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       number: PropTypes.string,
       name: PropTypes.string,
     }),
@@ -87,7 +87,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
   onRemoveContact: contactId =>
-    dispatch(phoneBookActions.deleteContact(contactId)),
+    dispatch(phoneBookOperations.deleteContact(contactId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContactList);

@@ -1,37 +1,23 @@
-import { v4 as uuid_v4 } from 'uuid';
 import { createAction } from '@reduxjs/toolkit';
-import types from './phoneBook-types';
 
-const addContact = createAction('phoneBook/addContact', (name, number) => {
-  return {
-    payload: {
-      id: uuid_v4(),
-      name,
-      number,
-    },
-  };
-});
-// const addContact = (name, number) => ({
-//   type: types.ADD,
-//   payload: {
-//     id: uuid_v4(),
-//     name,
-//     number,
-//     dublicateName: false,
-//   },
-// });
+export const fetchContactsRequest = createAction(
+  'phoneBook/fetchContactsRequest',
+);
+export const fetchContactsSuccess = createAction(
+  'phoneBook/fetchContactsSuccess',
+);
+export const fetchContactsError = createAction('phoneBook/fetchContactsError');
 
-const deleteContact = createAction('phoneBook/deleteContact');
+export const addContactRequest = createAction('phoneBook/addContactRequest');
+export const addContactSuccess = createAction('phoneBook/addContactSuccess');
+export const addContactError = createAction('phoneBook/addContactError');
 
-// const deleteContact = contactId => ({
-//   type: types.DELETE,
-//   payload: contactId,
-// });
+export const deleteContactRequest = createAction(
+  'phoneBook/deleteContactRequest',
+);
+export const deleteContactSuccess = createAction(
+  'phoneBook/deleteContactSuccess',
+);
+export const deleteContactError = createAction('phoneBook/deleteContactError');
 
-const changeFilter = createAction('phoneBook/changeFilter');
-// const changeFilter = value => ({
-//   type: types.CHANGE_FILTER,
-//   payload: value,
-// });
-
-export default { addContact, deleteContact, changeFilter };
+export const changeFilter = createAction('phoneBook/changeFilter');

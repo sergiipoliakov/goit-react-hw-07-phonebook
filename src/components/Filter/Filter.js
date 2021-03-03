@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import phoneBookActions from '../../redux/phoneBook/phonebook-actions.js';
+import * as phoneBookActions from '../../redux/phoneBook/phonebook-actions.js';
 import './Filter.css';
 
 const Filter = ({ value, onChangeFilter }) => {
