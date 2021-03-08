@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { increment } from 'redux/counterButton/button-action';
 
@@ -12,6 +12,10 @@ function CounterButton({ clicks, onClick }) {
     </div>
   );
 }
+CounterButton.propTypes = {
+  clicks: PropTypes.number,
+  onClick: PropTypes.func,
+};
 
 const mapStateToProps = state => ({
   clicks: state.counterButton.value,

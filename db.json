@@ -1,19 +1,14 @@
 {
   "contacts": [
     {
+      "name": "Rosie Simpson",
+      "number": "123-12-12",
+      "id": 8
+    },
+    {
       "name": "Sergii",
       "number": "123-12-12",
-      "id": 5
-    },
-    {
-      "name": "Rosie ",
-      "number": "123-12-12",
-      "id": 6
-    },
-    {
-      "name": "Сергей",
-      "number": "123-12-12",
-      "id": 7
+      "id": 9
     }
   ]
 }
