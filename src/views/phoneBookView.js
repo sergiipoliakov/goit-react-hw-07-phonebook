@@ -4,6 +4,7 @@ import { phoneBookOperations, phoneBookSelectors } from '../redux/phoneBook';
 import Layout from '../components/Layout';
 import ContactForm from '../components/ContactForm/ContactForm';
 import ContactList from '../components/ContactList/ContactList';
+import CounterButton from '../components/CounterButton';
 
 class phoneBookView extends Component {
   componentDidMount() {
@@ -14,6 +15,7 @@ class phoneBookView extends Component {
     return (
       <>
         <Layout>
+          <CounterButton />
           {this.props.isLoadingPhoneBook && <h1>Загржаем...</h1>}
           <ContactForm />
 

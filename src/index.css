@@ -14,3 +14,10 @@ code {
 .contacts-title {
   color: blue;
 }
+
+.counterButtonBachground {
+  background-color: teal;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

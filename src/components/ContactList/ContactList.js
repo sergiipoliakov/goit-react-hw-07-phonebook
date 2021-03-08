@@ -13,53 +13,54 @@ const ContactList = ({
   contacts,
   searchName,
   onRemoveContact,
-}) => (
-  <>
-    <CSSTransition
-      in={contacts.length > 1}
-      timeout={500}
-      classNames="filter-slideIn"
-      unmountOnExit
-    >
-      <Filter />
-    </CSSTransition>
+}) =>
+  console.log('ContactList re-render') || (
+    <>
+      <CSSTransition
+        in={contacts.length > 1}
+        timeout={500}
+        classNames="filter-slideIn"
+        unmountOnExit
+      >
+        <Filter />
+      </CSSTransition>
 
-    <CSSTransition
-      in={filteredContacts.length > 0}
-      timeout={500}
-      classNames="ContactList-title-slideIn"
-      unmountOnExit
-    >
-      <Title label="Contacts" />
-    </CSSTransition>
+      <CSSTransition
+        in={filteredContacts.length > 0}
+        timeout={500}
+        classNames="ContactList-title-slideIn"
+        unmountOnExit
+      >
+        <Title label="Contacts" />
+      </CSSTransition>
 
-    <CSSTransition
-      in={filteredContacts.length === 0 && contacts.length > 1}
-      timeout={500}
-      classNames="ContactList-title-slideIn"
-      unmountOnExit
-    >
-      <Title label={`Contact name: "${searchName}"  not found`} />
-    </CSSTransition>
+      <CSSTransition
+        in={filteredContacts.length === 0 && contacts.length > 1}
+        timeout={500}
+        classNames="ContactList-title-slideIn"
+        unmountOnExit
+      >
+        <Title label={`Contact name: "${searchName}"  not found`} />
+      </CSSTransition>
 
-    <TransitionGroup component="ul" className="ContactList">
-      {filteredContacts.map(({ id, name, number }) => (
-        <CSSTransition
-          key={id}
-          timeout={250}
-          classNames="ContactList-item-fade"
-        >
-          <ContactListItem
-            id={id}
-            name={name}
-            number={number}
-            onRemove={() => onRemoveContact(id)}
-          />
-        </CSSTransition>
-      ))}
-    </TransitionGroup>
-  </>
-);
+      <TransitionGroup component="ul" className="ContactList">
+        {filteredContacts.map(({ id, name, number }) => (
+          <CSSTransition
+            key={id}
+            timeout={250}
+            classNames="ContactList-item-fade"
+          >
+            <ContactListItem
+              id={id}
+              name={name}
+              number={number}
+              onRemove={() => onRemoveContact(id)}
+            />
+          </CSSTransition>
+        ))}
+      </TransitionGroup>
+    </>
+  );
 
 ContactList.propTypes = {
   contacts: PropTypes.arrayOf(

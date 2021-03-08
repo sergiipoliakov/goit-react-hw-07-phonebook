@@ -10,6 +10,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { phoneBookReducer } from './phoneBook';
+import counterButtonReducer from './counterButton/button-reducer';
 
 const middleware = [
   ...getDefaultMiddleware({
@@ -25,6 +26,7 @@ const middleware = [
 const store = configureStore({
   reducer: {
     phoneBook: phoneBookReducer,
+    counterButton: counterButtonReducer,
   },
   middleware,
 });
